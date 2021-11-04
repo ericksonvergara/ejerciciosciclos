@@ -12,6 +12,7 @@ public class ejercicio1 extends javax.swing.JFrame {
 
     /**
      * Creates new form ejercicio1
+     * hola
      */
     public ejercicio1() {
         initComponents();
