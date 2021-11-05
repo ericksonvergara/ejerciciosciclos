@@ -96,16 +96,19 @@ public class ejercicio1 extends javax.swing.JFrame {
         
         int b1 = Integer.parseInt(base.getText());
         int b2 = Integer.parseInt(exp.getText());
-        int res=b1;
-        
-        for(int i = 1; i < b2; i++){
-            res= (res*b1);
-            resultado.setText(" " + res);
-        }
-        
-        
+        long r=exponente(b1, b2);
+        resultado.setText(" " + r);
     }//GEN-LAST:event_calcularActionPerformed
 
+    public static long exponente(int b1, int b2)
+    {
+        long res=1;
+         for(int i = 1; i <= b2; i++){
+            res= (res*b1);
+            
+        }
+       return res;
+    }
     /**
      * @param args the command line arguments
      */
