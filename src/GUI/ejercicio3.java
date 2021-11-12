@@ -6,7 +6,7 @@ package GUI;
 
 /**
  *
- * @author SENA
+ * @author noskcire
  */
 public class ejercicio3 extends javax.swing.JFrame {
 
@@ -28,21 +28,21 @@ public class ejercicio3 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        n = new javax.swing.JTextField();
-        calcular = new javax.swing.JButton();
+        num = new javax.swing.JTextField();
+        enviar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         res = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("definir numero");
+        jLabel1.setText("Calcular si un número es deficiente, perfecto o abundante.");
 
-        jLabel2.setText("ingrese un numero:");
+        jLabel2.setText("Digite un número:");
 
-        calcular.setText("calcular");
-        calcular.addActionListener(new java.awt.event.ActionListener() {
+        enviar.setText("Calcular");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcularActionPerformed(evt);
+                enviarActionPerformed(evt);
             }
         });
 
@@ -53,51 +53,92 @@ public class ejercicio3 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(64, 64, 64)
-                            .addComponent(jLabel2)
-                            .addGap(37, 37, 37)
-                            .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(calcular))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel1)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(77, 77, 77))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(num))
+                        .addGap(193, 193, 193))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(enviar)
+                        .addGap(203, 203, 203))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(calcular)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addComponent(enviar)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-        int b1=Integer.parseInt(n.getText());
-        String [] lista = {};
-/*
-        for (int i = 0; i <= lista.b1; i++) {
-            ("Elemento "+i); 
-            res.setText(lista[i]);
-}
-        */
-    }//GEN-LAST:event_calcularActionPerformed
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
+        // TODO add your handling code here:
+        int  n= Integer.parseInt(num.getText());
+        int a= calcular(n);
+        
+        if(saber_perfecto(a, n))
+            res.setText( "numero es perfecto");
+        
+        if(saber_abundante(a, n))
+            res.setText( "numero es abundante");
+        
+        
+        
+        saber_deficiente(a, n);
+    }                                  
+
+     public static int calcular(int n)
+     {
+         int acu=0;
+        for (int i =1; i<n ; i ++)
+        {
+          if(n%i==0)   
+          acu+=i;      
+        }
+        return acu;
+     }
+     
+     public boolean saber_perfecto(int a, int n)
+     {
+        if(a==n)
+          return true;
+        else
+         return false;
+      }
+       
+     public void saber_deficiente(int acu, int n)
+     {
+        if(acu<n)
+           res.setText( "numero es deficiente");
+      }
+      
+     public boolean saber_abundante(int acu, int n)
+     {
+         if(acu>n)
+            return true;
+        else
+         return false;
+        
+      
+    }//GEN-LAST:event_enviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,11 +176,11 @@ public class ejercicio3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton calcular;
+    private javax.swing.JButton enviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField n;
+    private javax.swing.JTextField num;
     private javax.swing.JTextPane res;
     // End of variables declaration//GEN-END:variables
 }
