@@ -96,15 +96,20 @@ public class ejercicio2 extends javax.swing.JFrame {
         
         int b1= Integer.parseInt(num.getText());
         int fact = 1;
+        int r = factorial(b1, fact);
         
+        
+        resultado.setText(""+r);
+        
+    }//GEN-LAST:event_calcularActionPerformed
+
+    public static int factorial (int b1, int fact){
         while (b1 != 0){
             fact = fact * b1; b1--;
             
-            resultado.setText(""+fact);
-            
         }
-    }//GEN-LAST:event_calcularActionPerformed
-
+        return fact;
+    }
     /**
      * @param args the command line arguments
      */
@@ -139,6 +144,8 @@ public class ejercicio2 extends javax.swing.JFrame {
             }
         });
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton calcular;
