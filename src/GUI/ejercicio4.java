@@ -53,7 +53,7 @@ public class ejercicio4 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -65,8 +65,8 @@ public class ejercicio4 extends javax.swing.JFrame {
                             .addComponent(num))
                         .addGap(150, 150, 150))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,16 +91,12 @@ public class ejercicio4 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int n = Integer.parseInt(num.getText());
-        int r = proceso(n);
         
-        res.setText(""+ r);
-        
-        
-        //res.setText("La suma de los números pares es: " + par + "\nLa suma de los numero impares es: " + impar);
+        res.setText("La sumatoria de las cifas del numero: " + n + " son: "+ proceso(n));
         
     }//GEN-LAST:event_enviarActionPerformed
 
-    public static int proceso(int n){
+    public static String proceso(int n){
         int digito, par, impar;
         par = 0;
         impar = 0;
@@ -112,9 +108,11 @@ public class ejercicio4 extends javax.swing.JFrame {
             }else{
                 impar = impar + digito;
             }
-           
+           n = (int) n/10 ;
         }
-        return (int) n/10 ;
+        
+        String cad="\nPares= "+par+"\nImparres= "+impar;
+        return cad;
     }
     /**
      * @param args the command line arguments
