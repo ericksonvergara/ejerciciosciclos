@@ -115,13 +115,10 @@ public class ejercicio5 extends javax.swing.JFrame {
          i++;
         }
         
-    }                                        
+    }
 
-    
     public boolean saber_narcisista(int n)
-    {
-      //     153  
-        
+    {            
       int cc = String.valueOf(n).length();
       int aux = n;
       int acu = 0;
@@ -136,8 +133,6 @@ public class ejercicio5 extends javax.swing.JFrame {
        return true;
       else
        return false;
-    
-
     }//GEN-LAST:event_calcularActionPerformed
 
     /**
