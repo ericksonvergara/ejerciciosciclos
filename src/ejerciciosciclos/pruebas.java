@@ -17,31 +17,27 @@ public class pruebas {
         Scanner sc = new Scanner(System.in);       
         
         int n1 = sc.nextInt();
-        int n2 = sc.nextInt();
+        //int n2 = sc.nextInt();
         
-        int x = (n2 + (1 + n1));
-        int y = (n1 * 2);
+        //int x = (n2 + (1 + n1));
+        //int y = (n1 * 2);
         
-        
-        int r = (potencia(factorial(x),n1)/(potencia(y,factorial(n2))));
-        System.out.println(r);
+         System.out.println(divisores(n1));
+        //int r = (potencia(factorial(x),n1)/(potencia(y,factorial(n2))));
+        //System.out.println(r);
         
          
-     }
+     }  
      
-     public static int potencia(int n1, int n2){
-        
-        int a = (int)Math.pow(n1, n2);
-        return a;
-    }
-    
-    public static int factorial(int n1){
-        int fact = 1;
-        while (n1 != 0){
-            fact = fact * n1; n1--;
-            
+
+        public static int divisores(int n){
+       
+        int sum_div=0;
+        for(int i=1; i<n; i++){
+            if(n%i==0){
+                sum_div = sum_div+i;
+            }            
         }
-        return fact;
-        
+        return sum_div;
     }
 }

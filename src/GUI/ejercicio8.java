@@ -4,18 +4,16 @@
  */
 package GUI;
 
-
-
 /**
  *
  * @author noskcire
  */
-public class ejercicio7 extends javax.swing.JFrame {
+public class ejercicio8 extends javax.swing.JFrame {
 
     /**
-     * Creates new form ejercicio7
+     * Creates new form ejercicio8
      */
-    public ejercicio7() {
+    public ejercicio8() {
         initComponents();
     }
 
@@ -34,13 +32,14 @@ public class ejercicio7 extends javax.swing.JFrame {
         num2 = new javax.swing.JTextField();
         enviar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        respuesta = new javax.swing.JTextPane();
+        resultado = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Digite un número");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Digite un número");
 
         enviar.setText("Calcular");
         enviar.addActionListener(new java.awt.event.ActionListener() {
@@ -49,7 +48,10 @@ public class ejercicio7 extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(respuesta);
+        jScrollPane1.setViewportView(resultado);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setText("NUMERO AMIGOS!...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,28 +60,31 @@ public class ejercicio7 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(56, 56, 56)
-                                .addComponent(num2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(56, 56, 56)
-                                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(num1)
+                            .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(172, 172, 172)
                         .addComponent(enviar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -87,10 +92,10 @@ public class ejercicio7 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(35, 35, 35)
                 .addComponent(enviar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -100,30 +105,52 @@ public class ejercicio7 extends javax.swing.JFrame {
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         // TODO add your handling code here:
         int n1 = Integer.parseInt(num1.getText());
-        int n2 = Integer.parseInt(num2.getText()); 
+        int n2 = Integer.parseInt(num2.getText());
         
-        int x = (n2 + (1 + n1));
-        int y = (n1 * 2);
+        int sum_n1 = (divisores(n1));
+        int sum_n2 = (divisores(n2));
         
-        int r = (potencia(factorial(x),n1)/(potencia(y,factorial(n2))));
+        /*
+        if (sum_n1 == n2 && n1 == sum_n2){
+            resultado.setText("Los números " + n1 + " y " + n2 + " son amigos");
+        }else{
+            resultado.setText("Los números " + n1 + " y " + n2 + " no son amigos");
+        }
+        */
+        if(amigos(n1,n2)){
+            resultado.setText("estos numeros son amigos");
+        }else{
+            resultado.setText("estos numeros son amigos");
+        }
         
-        respuesta.setText("Respuesta: " +r);
+       
+        
+        
+        
     }//GEN-LAST:event_enviarActionPerformed
 
-    public static int potencia(int m, int n){
-        
-        int a = (int)Math.pow(m, n);
-        return a;
-    }
-    
-    public static int factorial(int g){
-        int fact = 1;
-        while (g != 0){
-            fact = fact * g; g--;            
+    public static int divisores(int n){
+       
+        int sum_div=0;
+        for(int i=1; i<n; i++){
+            if(n%i==0){
+                sum_div = sum_div+i;
+            }            
         }
-        return fact;       
+        return sum_div;
     }
     
+    public static boolean amigos(int n1, int n2){
+        boolean amigos;
+        if(divisores(n1)==n2 && n1 == divisores(n2)){
+            amigos = true;
+        }else{
+            amigos = false;
+        }
+        return amigos;
+    }
+    
+  
     /**
      * @param args the command line arguments
      */
@@ -141,20 +168,20 @@ public class ejercicio7 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ejercicio7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ejercicio7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ejercicio7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ejercicio7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ejercicio7().setVisible(true);
+                new ejercicio8().setVisible(true);
             }
         });
     }
@@ -163,9 +190,10 @@ public class ejercicio7 extends javax.swing.JFrame {
     private javax.swing.JButton enviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField num1;
     private javax.swing.JTextField num2;
-    private javax.swing.JTextPane respuesta;
+    private javax.swing.JTextPane resultado;
     // End of variables declaration//GEN-END:variables
 }
