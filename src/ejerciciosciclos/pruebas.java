@@ -11,33 +11,51 @@ import java.util.Scanner;
  * @author noskcire
  */
 public class pruebas {
+    
      public static void main(String[] args) {
         // TODO code application logic here
         
         Scanner sc = new Scanner(System.in);       
         
-        int n1 = sc.nextInt();
-        //int n2 = sc.nextInt();
+        int  i = 10000;
         
-        //int x = (n2 + (1 + n1));
-        //int y = (n1 * 2);
-        
-         System.out.println(divisores(n1));
-        //int r = (potencia(factorial(x),n1)/(potencia(y,factorial(n2))));
-        //System.out.println(r);
-        
-         
-     }  
-     
-
-        public static int divisores(int n){
-       
-        int sum_div=0;
-        for(int i=1; i<n; i++){
-            if(n%i==0){
-                sum_div = sum_div+i;
-            }            
+        int veces=0;        
+        boolean ok =true;                
+        while(ok)
+        {
+         if(saber_narcisista(i))
+         {
+            System.out.println("el numero " + i + " es narcisista\n");
+          veces--;
+          
+          
+          if(veces>0)
+             ok = false;
+         }
+          i--;
         }
-        return sum_div;
+        
     }
+
+    public static boolean saber_narcisista(int i)
+    {            
+      int cc = String.valueOf(i).length();
+      int aux = i;
+      int acu = 0;
+      
+      while(i>0)
+      {
+        acu+= Math.pow(i%10, cc);
+        i= i/10;
+      }
+      
+      if(acu == aux)
+       return true;
+      else
+       return false;
+    } 
 }
+     
+         
+
+        
