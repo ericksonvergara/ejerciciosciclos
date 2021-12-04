@@ -37,11 +37,12 @@ public class Ejercicio15 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(null);
 
         jLabel1.setText("Codigo del libro");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 40, 87, 14);
+        jLabel1.setBounds(80, 40, 120, 14);
         getContentPane().add(codigo);
         codigo.setBounds(60, 80, 150, 30);
 
@@ -56,7 +57,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
 
         jLabel2.setText("Tipo de servicio:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(300, 30, 100, 20);
+        jLabel2.setBounds(300, 30, 120, 20);
         getContentPane().add(servi);
         servi.setBounds(300, 80, 130, 30);
 
@@ -69,7 +70,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
 
         jLabel3.setText("1. Prestamo 2. Entrega");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(300, 50, 140, 14);
+        jLabel3.setBounds(300, 50, 170, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

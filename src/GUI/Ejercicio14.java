@@ -40,29 +40,31 @@ public class Ejercicio14 extends javax.swing.JFrame {
         j2 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         genero = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
         getContentPane().add(dia1);
-        dia1.setBounds(22, 64, 75, 29);
+        dia1.setBounds(60, 100, 75, 29);
 
         jLabel3.setText("Digite la fecha actual DD/MM/AÑO");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(38, 152, 185, 14);
+        jLabel3.setBounds(70, 190, 240, 14);
 
         jLabel2.setText("Digite la fecha de nacimiento DD/MM/AÑO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(22, 32, 230, 14);
+        jLabel2.setBounds(60, 70, 280, 14);
         getContentPane().add(mes1);
-        mes1.setBounds(115, 64, 75, 28);
+        mes1.setBounds(150, 100, 75, 28);
         getContentPane().add(año1);
-        año1.setBounds(200, 64, 75, 29);
+        año1.setBounds(230, 100, 75, 29);
         getContentPane().add(dia2);
-        dia2.setBounds(22, 214, 72, 29);
+        dia2.setBounds(60, 250, 72, 29);
         getContentPane().add(mes2);
-        mes2.setBounds(129, 214, 72, 29);
+        mes2.setBounds(160, 250, 72, 29);
         getContentPane().add(año2);
-        año2.setBounds(239, 214, 72, 30);
+        año2.setBounds(270, 250, 72, 30);
 
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,20 +73,24 @@ public class Ejercicio14 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(490, 250, 69, 24);
+        jButton1.setBounds(260, 330, 69, 24);
 
         j2.setColumns(20);
         j2.setRows(5);
         jScrollPane1.setViewportView(j2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(239, 297, 490, 73);
+        jScrollPane1.setBounds(70, 380, 490, 73);
 
-        jLabel1.setText("Digite el genero 1. Hombre 2. Mujer");
+        jLabel1.setText("Digite el genero: ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(444, 99, 198, 14);
+        jLabel1.setBounds(370, 90, 110, 14);
         getContentPane().add(genero);
-        genero.setBounds(482, 149, 90, 30);
+        genero.setBounds(380, 140, 90, 30);
+
+        jLabel4.setText("1. Hombre 2. Mujer");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(370, 110, 120, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,7 +105,7 @@ public class Ejercicio14 extends javax.swing.JFrame {
         int g= Integer.parseInt(genero.getText());
         
        if (validar_fecha(m1, m2,  d1, d2)==1){
-           j2.setText("Fecha valida" + " la edad es de: "+ calculo_edad(a1, a2)+ vacunar(g,a1,a2) );
+           j2.setText("Fecha valida" + " la edad es de: "+ calculo_edad(a1, a2)+ " " + vacunar(g,a1,a2) );
        }
        else{
            j2.setText(""+ "Fecha no valida");
@@ -213,6 +219,7 @@ public class Ejercicio14 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mes1;
     private javax.swing.JTextField mes2;

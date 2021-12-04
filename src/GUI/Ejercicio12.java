@@ -93,9 +93,9 @@ public class Ejercicio12 extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(nota3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(nota4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nota4)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jLabel1)))
@@ -156,15 +156,15 @@ public class Ejercicio12 extends javax.swing.JFrame {
        float suma=0;
        if (acumulado(n1, n2, n3, n4, n5)>5){
            
-           resultado.setText("La nota la tiene en: "+String.format("%.1f", calculo(n1, n2, n3, n4, n5))+ " Necesita "+ String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". No tiene oportunidad de pasar la materia");
+           resultado.setText("PROMEDIO: "+String.format("%.1f", calculo(n1, n2, n3, n4, n5))+ " Necesita "+ String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". No tiene oportunidad de pasar la materia");
        }
        else{
         if ((acumulado(n1, n2, n3, n4, n5)>0 )&& (acumulado(n1, n2, n3, n4, n5)<=5)){
-           resultado.setText("La nota la tiene en: "+String.format("%.1f",calculo(n1, n2, n3, n4, n5))+ " Necesita "+  String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". Tiene oportunidad de pasar la materia");
+           resultado.setText("PROMEDIO: "+String.format("%.1f",calculo(n1, n2, n3, n4, n5))+ " Necesita "+  String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". Tiene oportunidad de pasar la materia");
            }
         
         else{
-           resultado.setText("La nota la tiene en: "+String.format("%.1f", calculo(n1, n2, n3, n4, n5))+ " Necesita "+  String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". Ya paso la materia");
+           resultado.setText("PROMEDIO: "+String.format("%.1f", calculo(n1, n2, n3, n4, n5))+ " Necesita "+  String.format("%.2f",acumulado(n1, n2, n3, n4, n5)) + ". Ya paso la materia");
         
         }
        }
