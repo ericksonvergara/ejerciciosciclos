@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author noskcire
@@ -28,7 +30,8 @@ public class ejercicio10 extends javax.swing.JFrame {
 
         enviar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        resultado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +44,10 @@ public class ejercicio10 extends javax.swing.JFrame {
 
         jLabel1.setText("Números Narcisistas del 1 al 10000");
 
+        resultado.setColumns(20);
+        resultado.setRows(5);
+        jScrollPane1.setViewportView(resultado);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -48,14 +55,14 @@ public class ejercicio10 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
+                        .addComponent(enviar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enviar)
-                            .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(112, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,9 +71,9 @@ public class ejercicio10 extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(46, 46, 46)
                 .addComponent(enviar)
-                .addGap(45, 45, 45)
-                .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -75,10 +82,22 @@ public class ejercicio10 extends javax.swing.JFrame {
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         // TODO add your handling code here:
         
-        int  i = 10000;
+        int  i = 1;
+        int veces=0;   
         
-        resultado.setText(""+imprimir(i));
-        
+        boolean ok =true;                
+        while(ok)
+        {
+         if(saber_narcisista(i))
+         { 
+          resultado.setText(resultado.getText() + "el numero " + i + " es narcisista\n");   
+         }
+           veces++;
+          
+           if(veces>=10000)
+           ok=false;
+           i++;
+        } 
     }
 
     public static boolean saber_narcisista(int i)
@@ -102,20 +121,7 @@ public class ejercicio10 extends javax.swing.JFrame {
 
     public static boolean imprimir(int i){
         
-        int veces=0;        
-        boolean ok =true;                
-        while(ok)
-        {
-         if(saber_narcisista(i))
-         {
-           veces--;      
-          
-          if(veces>0)
-             ok = false;
-         }
-          i--;
-        }
-        return ok;
+        return true;
     }
 
           
@@ -157,6 +163,7 @@ public class ejercicio10 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enviar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel resultado;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea resultado;
     // End of variables declaration//GEN-END:variables
 }

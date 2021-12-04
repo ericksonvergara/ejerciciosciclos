@@ -4,16 +4,18 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author noskcire
  */
-public class ejercicio4 extends javax.swing.JFrame {
+public class ejercicio10_1 extends javax.swing.JFrame {
 
     /**
-     * Creates new form ejercicio4
+     * Creates new form ejercicio10_1
      */
-    public ejercicio4() {
+    public ejercicio10_1() {
         initComponents();
     }
 
@@ -27,18 +29,14 @@ public class ejercicio4 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        num = new javax.swing.JTextField();
         enviar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        res = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        resultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Descomponer y calcular la suma");
-
-        jLabel2.setText("Digite un número");
+        jLabel1.setText("Números narcisistas del 1 al 10000");
 
         enviar.setText("Calcular");
         enviar.addActionListener(new java.awt.event.ActionListener() {
@@ -47,42 +45,38 @@ public class ejercicio4 extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(res);
+        resultado.setColumns(20);
+        resultado.setRows(5);
+        jScrollPane2.setViewportView(resultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enviar)
-                            .addComponent(num))
-                        .addGap(150, 150, 150))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(57, 57, 57))))
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(enviar)
+                        .addGap(158, 158, 158))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(31, 31, 31)
-                .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(40, 40, 40)
                 .addComponent(enviar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -91,30 +85,57 @@ public class ejercicio4 extends javax.swing.JFrame {
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         // TODO add your handling code here:
         
-        int n = Integer.parseInt(num.getText());
+        int limite=10000;
         
-        res.setText("La sumatoria de las cifas del numero: " + n + " son: "+ proceso(n));
+        //resultado.setText(resultado.getText() + imprimir(limite) + "\n");
+        
+       
+        int cont = 0;
+        for(int i=0;i<=limite;i++){
+            if(saber_narcisista(i)){
+                resultado.setText(resultado.getText() + i + "\n");
+                cont++;
+            }
+            
+        } 
         
     }//GEN-LAST:event_enviarActionPerformed
-
-    public static String proceso(int n){
-        int digito, par, impar;
-        par = 0;
-        impar = 0;
         
-        while(n > 0){
-            digito = n % 10;
-            if(digito % 2 == 0){
-                par = par + digito;
-            }else{
-                impar = impar + digito;
-            }
-           n = (int) n/10 ;
+    private static boolean saber_narcisista(int num) {
+        int numDigitos = Digitos(num);
+        int saber = 0, resto = 0, aux = num;
+        while(aux>0){
+            resto = aux%10;
+            saber += Math.pow(resto, numDigitos);
+            aux /= 10;
         }
-        
-        String cad="\nPares= "+par+"\nImparres= "+impar;
-        return cad;
+        return saber==num;
     }
+ 
+    private static int Digitos(int num){
+        int digitos = 0;
+        while(num>0){
+            digitos++;
+            num /= 10;
+        }
+        return digitos;
+    
+    }
+    /*
+    public int imprimir(int k){
+        int limite;
+        limite = k;
+        
+        int cont = 0;
+        for(int i=0;i<=limite;i++){
+            if(saber_narcisista(i)){
+                resultado.setText(resultado.getText() + i + "\n");
+                cont++;
+            }            
+        } 
+        return limite;
+    }
+    */
     /**
      * @param args the command line arguments
      */
@@ -132,20 +153,20 @@ public class ejercicio4 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio10_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio10_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio10_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ejercicio10_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ejercicio4().setVisible(true);
+                new ejercicio10_1().setVisible(true);
             }
         });
     }
@@ -153,9 +174,7 @@ public class ejercicio4 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enviar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField num;
-    private javax.swing.JTextPane res;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea resultado;
     // End of variables declaration//GEN-END:variables
 }

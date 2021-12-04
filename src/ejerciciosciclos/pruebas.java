@@ -11,51 +11,44 @@ import java.util.Scanner;
  * @author noskcire
  */
 public class pruebas {
-    
-     public static void main(String[] args) {
+
+    public static void main(String[] args) {
         // TODO code application logic here
-        
-        Scanner sc = new Scanner(System.in);       
-        
-        int  i = 10000;
-        
-        int veces=0;        
-        boolean ok =true;                
-        while(ok)
-        {
-         if(saber_narcisista(i))
-         {
-            System.out.println("el numero " + i + " es narcisista\n");
-          veces--;
-          
-          
-          if(veces>0)
-             ok = false;
-         }
-          i--;
-        }
-        
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        System.out.println(verificar(n));
+
+        //for(int k=calcular(n)-1; k>=0; k--){
+        //  System.out.println(k);
+        //}
+        //System.out.println(calcular(n));
     }
 
-    public static boolean saber_narcisista(int i)
-    {            
-      int cc = String.valueOf(i).length();
-      int aux = i;
-      int acu = 0;
-      
-      while(i>0)
-      {
-        acu+= Math.pow(i%10, cc);
-        i= i/10;
-      }
-      
-      if(acu == aux)
-       return true;
-      else
-       return false;
-    } 
-}
-     
-         
+    public static int verificar(int n) {
+        int num = String.valueOf(n).length();
+        if (num == 6) {
+            System.out.println("1");
+        }else{
+            System.out.println("0");
+        }
+            return num;
+    }
+/*
+    public static int calcular(int n) {
 
-        
+        int i = 0;
+        int[] vector;
+        vector = new int[3];
+        while (n == 6) {
+            vector[i] = n % 100;
+            n = n / 100;
+            i++;
+        }
+
+        return i;
+    }
+*/
+}

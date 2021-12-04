@@ -35,6 +35,7 @@ public class ejercicio5 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Numero Narcisista");
 
         jLabel2.setText("ingrese un numero:");
@@ -67,7 +68,7 @@ public class ejercicio5 extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(154, 154, 154)
                                 .addComponent(jLabel1)))
-                        .addGap(0, 111, Short.MAX_VALUE))
+                        .addGap(0, 108, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
@@ -85,7 +86,7 @@ public class ejercicio5 extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(calcular)
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
